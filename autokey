@@ -1,0 +1,106 @@
+### COPY TO CLIPBOARD TITLE AND LINK
+
+import time
+
+win_title = window.get_active_title()
+only_title = win_title.split(" - ")[0].strip()
+#only_title = only_title.encode("utf-8")
+mouse.click_relative(400, 20, 2)
+keyboard.send_keys("<ctrl>+a")
+keyboard.send_keys("<ctrl>+c")
+time.sleep(0.2)
+link = clipboard.get_clipboard()
+link = link.strip()
+title_link = "[{}]({})".format(only_title, link)
+#dialog.info_dialog(title='Title', message=title_link)
+clipboard.fill_clipboard(title_link)
+
+### COPY TO CLIPBOARD WITH MD FORMAT
+
+
+text = clipboard.get_clipboard()
+text = text.strip()
+
+# Paste markdown highligthed text
+# "<text>"
+displayed_text = "link"
+
+if text.find("*.com") != -1: 
+    tt_number = text.split("/")[-1]
+    displayed_text = "TT-{}".format(tt_number)
+    #dialog.info_dialog("Window", "{}".format(displayed_text))
+    
+if text.find("*.com") != -1:
+    wiki_page = text.split("/")[-1]
+    wiki_page_name = wiki_page.split("#")[0]
+    displayed_text = "Wiki: {}".format(wiki_page_name)
+    #dialog.info_dialog("Window", "{}".format(displayed_text))
+    
+if (text.find("*.com") != -1) or (text.find("*.com") != -1) or (text.find("*.com") != -1):
+        sim_page = text.split("/")[-1]
+        sim_page_name = sim_page.split("#")[0]
+        displayed_text = "SIM: {}".format(sim_page_name)
+        #dialog.info_dialog("Window", "{}".format(displayed_text))
+        
+if text.find("*.com") != -1:
+        t_page = text.split("/")
+        index_of_URL = t_page.index("*.com")
+        index_t_name = index_of_URL + 1
+        displayed_text = "T: {}".format(t_page[index_t_name])
+        #dialog.info_dialog("Window", "{}".format(displayed_text))
+
+if text.find("*.com/reviews") != -1:
+        cr_page = text.split("/")
+        index_of_review = cr_page.index("reviews")
+        index_of_cr = index_of_review + 1
+        displayed_text = "{}".format(cr_page[index_of_cr])
+        #dialog.info_dialog("Window", "{}".format(displayed_text))
+        
+
+full_text = "[{}]({})".format(displayed_text, text)
+#dialog.info_dialog(title='Title', message=full_text)
+clipboard.fill_clipboard(full_text)
+keyboard.send_keys("<ctrl>+v")
+
+### Tripple qoutes
+text = clipboard.get_clipboard()
+text = text.strip()
+
+# Paste markdown qouted text
+# ```
+# <text>
+# ```
+
+keyboard.send_key("`", 3)
+keyboard.send_key("<enter>", 1)
+keyboard.send_keys("<ctrl>+v")
+keyboard.send_key("<enter>", 1)
+keyboard.send_key("`", 3)
+keyboard.send_key("<enter>", 1)
+keyboard.send_key("<enter>", 1)
+
+### Single qoute
+
+text = clipboard.get_clipboard()
+text = text.strip()
+
+# Paste markdown highligthed text
+# `<text>`
+
+keyboard.send_key("`")
+keyboard.send_keys("<ctrl>+v")
+keyboard.send_key("`")
+
+### Double qoute
+
+text = clipboard.get_clipboard()
+text = text.strip()
+
+# Paste markdown highligthed text
+# "<text>"
+
+keyboard.send_key('"')
+keyboard.send_keys("<ctrl>+v")
+keyboard.send_key('"')
+
+

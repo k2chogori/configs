@@ -1,0 +1,62 @@
+Vimium Options:
+# Insert your preferred key mappings here.
+map J nextTab
+map K previousTab
+map <c-u> scrollFullPageUp
+map <c-d> scrollFullPageDown
+unmap u
+unmap d
+
+Auto Tab Discard
+React Develops Tools
+Redux DevTools
+Tab Session Manager
+
+TamperMonkey
+
+TreeStyleTab
+
+  /* Compact tab layout */
+  :root { --tab-height: 12px !important; }
+  .tab { height: 23px !important; }
+
+
+  /* Show title of unread tabs with green font */
+  .tab.unread .label {
+    color: darkblue !important;
+    font-weight: lighter;
+  }
+
+  /* Add private browsing indicator per tab */
+  .tab.private-browsing .label:before {
+    content: " ";
+  }
+
+.tab {
+  font-size: 9pt;
+  font-weight: bold;
+}
+
+.tab.active {
+  height: 25px !important;
+  background-color: green;
+  font-size: 1px;
+}
+.tab.active .label {
+  font-weight: bold;
+  font-size: 13px;
+
+
+}
+.tab.active .twisty,
+.tab.active .label,
+.tab.active .counter {
+  color: white;
+
+}
+
+.tab.unread .label-content {
+  font-style: bold;
+}
+
+
